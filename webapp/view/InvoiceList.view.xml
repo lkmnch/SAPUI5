@@ -1,6 +1,6 @@
 <mvc:View xmlns="sap.m" controllerName="sap.ui.demo.walkthrough.controller.InvoiceList"
     xmlns:mvc="sap.ui.core.mvc">
-    <List id="invoiceList" class="sapUiResponsiveMargin" width="auto" items="{invoice>/Invoices}">
+    <List id="invoiceList" class="sapUiResponsiveMargin" width="auto" items="{path: 'invoice>/Invoices', sorter : { path: 'ShipperName', group : true}}">
         <headerToolbar>
             <Toolbar>
                 <Title text="{i18n>invoiceListTitle"/>
@@ -17,11 +17,11 @@
                     }
                 }" numberUnit="{view>/currency}" numberState="{= ${invoice>ExtendedPrice} > 50 ? 'Error' : 'Success' }">
                 <firstStatus>
-					<ObjectStatus text="{
+                    <ObjectStatus text="{
 						path: 'invoice>Status',
 						formatter: '.formatter.statusText'
 					}"/>
-				</firstStatus>
+                </firstStatus>
             </ObjectListItem>
 
         </items>
