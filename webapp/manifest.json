@@ -1,7 +1,7 @@
 {
     "_version": "1.1.0",
 
-	"start_url": "<startUrl>",
+    "start_url": "<startUrl>",
 
     "sap.app": {
         "_version": "1.1.0",
@@ -11,18 +11,12 @@
         "applicationVersion": {
             "version": "1.0.0"
         },
-        "title": "{{appTitle}}",
-        "description": "{{appDescription}}",
-        "tags": {
-            "keywords": [
-                "{{<keyword1>}}", "{{<keyword2>}}"
-            ]
-        },
         "dataSources": {
-            "<dataSourceAlias>": {
-                "uri": "<uri>",
+            "invoiceRemote": {
+                "uri": "http://localhost:8010/proxy/V2/Northwind/Northwind.svc/",
+                "type": "OData",
                 "settings": {
-                    "localUri": "<localUri>"
+                    "odataVersion": "2.0"
                 }
             }
         }
@@ -50,17 +44,13 @@
     "sap.ui5": {
         "_version": "1.1.0",
         "resources": {
-            "js": [
-                {
-                    "uri": "<uri>"
-                }
-            ],
-            "css": [
-                {
-                    "uri": "css/style.css"
+            "js": [{
+                "uri": "<uri>"
+            }],
+            "css": [{
+                "uri": "css/style.css"
 
-                }
-            ]
+            }]
         },
         "dependencies": {
             "minUI5Version": "1.60",
@@ -78,13 +68,8 @@
                 },
                 "uri": "<uriRelativeToManifest>"
             },
-            "": {
-                "dataSource": "<dataSourceAlias>",
-                "settings": {}
-            },
             "invoice": {
-                "type" : "sap.ui.model.json.JSONModel",
-                "uri" : "Invoices.json"
+                "dataSource": "invoiceRemote"
             }
         },
         "rootView": {
@@ -101,9 +86,9 @@
 
         },
         "extends": {
-            "component" : "<extendedComponentId>",
-			"minVersion": "<minComp1Version>",
-			"extensions": {}
+            "component": "<extendedComponentId>",
+            "minVersion": "<minComp1Version>",
+            "extensions": {}
         }
 
     },

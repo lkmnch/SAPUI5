@@ -1,15 +1,11 @@
 {
-  "devDependencies": {
-    "@ui5/cli": "^2.14.9"
-  },
-  "name": "sapui5",
-  "version": "1.0.0",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "description": ""
+	"name": "Sample-Package",
+	"version": "1.0.0",
+	"description": "Sample package.json",
+	"scripts": {
+		"proxy": "node proxy.js"
+	},
+	"dependencies": {
+		"proxy": "^1.0.2"
+	}
 }
