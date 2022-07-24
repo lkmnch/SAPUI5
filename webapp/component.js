@@ -6,6 +6,7 @@ sap.ui.define([
     "use strict";
     return UIComponent.extend("sap.ui.demo.walkthrough.Component", {
         metadata: {
+            interfaces: ["sap.ui.core.IAsyncContentCreation"],
             manifest: "json"
         },
         init: function () {
@@ -22,6 +23,9 @@ sap.ui.define([
 
             //set dialog
             this._helloDialog = new HelloDialog(this.getRootControl());
+
+            // create the views based on the url/hash
+			this.getRouter().initialize();
         },
         exit: function () {
             this._helloDialog.destroy();
